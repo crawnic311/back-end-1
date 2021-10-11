@@ -12,12 +12,14 @@ app.use(cors())
 
 
 
-const friendsList = ['Dillon', 'Kajsia', 'Erin', 'Blaire', 'Alex', 'Garret']
-
-
 //handler functions
 app.get('/api/users', (req, res) => {
     let friends = ['Nitin', 'Eric', 'Jeddy', 'Cameron', 'Riley']
+    if(req.query.item) {
+        const filteredItems = friends.filter(friendItem => friendItem.toLowerCase().includes(req.query.item.toLowerCase()))
+        res.status(200).send(filteredItems)
+    }
+
     res.status(200).send(friends)
 })
 

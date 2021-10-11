@@ -12,26 +12,29 @@
     <h1>Friends</h1>
     <ul id="people" class=""></ul>
 
-    <button id="button">GET Friends List</button>
+    <div>
+      <button id="button">GET Friends List</button>
+    </div>
+
+    <div class="request">
+      <select id="index" style="width: 183px;">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+      <button id="index-submit">Submit</button>
+    </div>
+
+    <div>
+    <input type="text" id="query-input"/>
+    <button id="name-submit">Submit</button>
+    </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-      document.getElementById("button").onclick = function () {
-        axios
-          .get("http://localhost:5502/api/users")
-          .then(function (response) {
-            const data = response.data;
-            document.getElementById("people").innerHTML = data
-              .map(function (person) {
-                return '<li class="row">' + person;
-              })
-              .join("");
-          })
-          .catch(function (err) {
-            document.getElementById("people").innerHTML =
-              '<li class="text-danger">' + err.message + "</li>";
-          });
-      };
-    </script>
+    <script src="/added.js"></script>
   </body>
 </html>
